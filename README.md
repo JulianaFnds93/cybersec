@@ -75,4 +75,20 @@ Obtivemos então, sucesso ao acessar o serviço utilizando o usuário: msfadmin 
 <img width="1423" height="827" alt="image" src="https://github.com/user-attachments/assets/644e1297-2f04-4acf-8803-c63cbf4d9b0a" />
 
 Com esse ataque conseguimos todos os usuários e senhas válidos para login.
-  
+
+3.Enumeração SMB e Password Spraying
+ a) Enumeração de usuários existentes e ativos:
+    Antes de iniciar o ataque primeiro temos que identificar os usuários ativos para maior efetividade e evitar bloqueios de IP por tentativas de acesso como o comando enum4linux
+
+    enum4linux -a 192.168.15.43 | tee enum4_output.txt
+
+    Onde obtivemos o seguinte resultado:
+
+    <img width="1249" height="852" alt="image" src="https://github.com/user-attachments/assets/5a65d6b0-e4e1-4bb7-86b5-3c062540ef4c" />
+
+    
+
+
+    
+
+    
