@@ -16,4 +16,8 @@ Programas e Ferramentas utilizadas: Kali Linux, Medusa e Metaexploitable 2.
     Para identificarmos as vulnerabilidades FTP é necessário realizar a varredura de rede com Nmap:
     
     nmap -sV -p 21,22,80,445,138 192.168.15.30
+    Com esse comando obtivemos o seguinte resultado:
     
+<img width="863" height="272" alt="image" src="https://github.com/user-attachments/assets/8e9a35a4-125a-431e-b484-624ea04ef864" />
+
+
