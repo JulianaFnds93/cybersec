@@ -1,4 +1,4 @@
-# cybersec
+# PasswordSprayingMedusa
 Desafio de Brute Force 
 Programas e Ferramentas utilizadas: Kali Linux, Medusa e Metaexploitable 2.
 
